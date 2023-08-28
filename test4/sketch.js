@@ -55,9 +55,10 @@ function draw()
   }
 
   afstand1 = sqrt((camX - x1) * (camX - x1) + (camY - y1) * (camY - y1) + (camZ - z1) * (camZ - z1));
-  afstand1 = sqrt((camX - x1) * (camX - x1) + (camY - y1) * (camY - y1) + (camZ - z2) * (camZ - z2));
-  afstand1 = sqrt((camX - x1) * (camX - x1) + (camY - y1) * (camY - y1) + (camZ - z3) * (camZ - z3));
-  afstand1 = sqrt((camX - x1) * (camX - x1) + (camY - y1) * (camY - y1) + (camZ - z4) * (camZ - z4));
+  afstand2 = sqrt((camX - x2) * (camX - x2) + (camY - y2) * (camY - y2) + (camZ - z2) * (camZ - z2));
+  afstand3 = sqrt((camX - x3) * (camX - x3) + (camY - y3) * (camY - y3) + (camZ - z3) * (camZ - z3));
+  afstand4 = sqrt((camX - x4) * (camX - x4) + (camY - y4) * (camY - y4) + (camZ - z4) * (camZ - z4));
+
 BoxBoy(x1, y1, z1, boxWidth, boxHeight, boxDepth);  
 
 BoxBoy(x2, y2, z2, boxWidth, boxHeight, boxDepth);
@@ -66,7 +67,22 @@ BoxBoy(x3, y3, z3, boxWidth, boxHeight, boxDepth);
 
 BoxBoy(x4, y4, z4, boxWidth, boxHeight, boxDepth);
 
-if ()
+if (afstand1 <= (boxWidth / 2))
+{
+  healthPoint -= 1;
+}
+else if (afstand2 <= (boxWidth / 2))
+{
+  healthPoint -= 1;
+}
+else if (afstand3 <= (boxWidth / 2))
+{
+  healthPoint -= 1;
+}
+else if (afstand4 <= (boxWidth / 2))
+{
+  healthPoint -= 1;
+}
 
 z1 = z1 + s1;
 z2 = z2 + s2;
