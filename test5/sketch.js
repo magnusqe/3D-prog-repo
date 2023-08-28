@@ -1,15 +1,15 @@
 x1 = 50;
-y1 = 40;
+y1 = 70;
 b1 = 13;
 h1 = 54;
-x2 = 65;
-y2 = 115;
+x2 = 50;
+y2 = 20;
 b2 = 43;
 h2 = 26;
-spx1 = 3;
-spy1 = 5;
+spx1 = 2;
+spy1 = 2;
 spx2 = 2;
-spy2 = 7;
+spy2 = 2;
 
 function setup() 
 {
@@ -24,8 +24,9 @@ function draw()
   MinBox(x1, y1, b1, h1);
   MinBox(x2, y2, b2, h2);
 
-  afstandX = x2 - x1;
-  afstandY = y2 - y1;
+  line(x1,y1,x2,y2);
+
+  afstand = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 
   if (x1 >= (400 - (b1 / 2)) || x1 <= (0 + (b1 / 2)))
   {
@@ -35,7 +36,6 @@ function draw()
   {
     spy1 = spy1 * -1;
   }
-
   if (x2 >= (400 - (b2 / 2)) || x2 <= (0 + (b2 / 2)))
   {
     spx2 = spx2 * -1;
@@ -44,6 +44,13 @@ function draw()
   {
     spy2 = spy2 * -1;
   }
+
+  if (afstand <= (b1 / 2) + (b2 / 2))
+  {
+    console.log("ja");
+  }
+  console.log(afstand);
+
 
   x1 = x1 + spx1;
   y1 = y1 + spy1;

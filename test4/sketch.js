@@ -54,6 +54,10 @@ function draw()
     reset = false;
   }
 
+  afstand1 = sqrt((camX - x1) * (camX - x1) + (camY - y1) * (camY - y1) + (camZ - z1) * (camZ - z1));
+  afstand1 = sqrt((camX - x1) * (camX - x1) + (camY - y1) * (camY - y1) + (camZ - z2) * (camZ - z2));
+  afstand1 = sqrt((camX - x1) * (camX - x1) + (camY - y1) * (camY - y1) + (camZ - z3) * (camZ - z3));
+  afstand1 = sqrt((camX - x1) * (camX - x1) + (camY - y1) * (camY - y1) + (camZ - z4) * (camZ - z4));
 BoxBoy(x1, y1, z1, boxWidth, boxHeight, boxDepth);  
 
 BoxBoy(x2, y2, z2, boxWidth, boxHeight, boxDepth);
@@ -61,6 +65,8 @@ BoxBoy(x2, y2, z2, boxWidth, boxHeight, boxDepth);
 BoxBoy(x3, y3, z3, boxWidth, boxHeight, boxDepth);
 
 BoxBoy(x4, y4, z4, boxWidth, boxHeight, boxDepth);
+
+if ()
 
 z1 = z1 + s1;
 z2 = z2 + s2;
