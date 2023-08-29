@@ -29,15 +29,15 @@ skal2 = 0;
 
 function preload()
 {
+  //Loader image from folder
   christoffer = loadImage('Texture/Christoffer.png');
 }
 
 function setup() 
 {
+  //creating a display, changing the way angles are calculated and creating sliders that change the length and depth of the plane where the sphere is on
   createCanvas(500, 500, WEBGL);
   angleMode(DEGREES);
-  v1 = createVector((p1x - p0x), (p1y - p0y), (p1z - p0z));
-  v2 = createVector((p2x - p0x), (p2y - p0y), (p2z - p0z));
   slider1 = createSlider(-10, 10, 0, 0.01);
   slider2 = createSlider(-10, 10, 0, 0.01);
 }
@@ -46,6 +46,7 @@ function draw()
 {
   background(220);
 
+  //Calling the value of the sliders into a new variable
   skal1 = slider1.value();
   skal2 = slider2.value();
 
@@ -61,7 +62,7 @@ function draw()
   
   MyPlane();
 
-  if (reset == true)
+  /*if (reset == true)
   {
     x1 = random((-200 + boxWidth), (200 - boxWidth));
     y1 = random((-200 + boxWidth), (200 - boxWidth));
@@ -83,7 +84,7 @@ function draw()
   afstand3 = sqrt((camX - x3) * (camX - x3) + (camY - y3) * (camY - y3) + (camZ - z3) * (camZ - z3));
   afstand4 = sqrt((camX - x4) * (camX - x4) + (camY - y4) * (camY - y4) + (camZ - z4) * (camZ - z4));
 
-/*BoxBoy(x1, y1, z1, boxWidth, boxHeight, boxDepth);  
+BoxBoy(x1, y1, z1, boxWidth, boxHeight, boxDepth);  
 
 BoxBoy(x2, y2, z2, boxWidth, boxHeight, boxDepth);
 
