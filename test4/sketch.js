@@ -13,6 +13,8 @@ s2 = 45;
 s3 = 55;
 s4 = 67;
 reset = true;
+healthPoint = 3;
+gameOver = false;
 
 function preload()
 {
@@ -84,10 +86,17 @@ else if (afstand4 <= (boxWidth / 2))
   healthPoint -= 1;
 }
 
+if (healthPoint <= 0)
+{
+  gameOver = true;
+}
+
 z1 = z1 + s1;
 z2 = z2 + s2;
 z3 = z3 + s3;
 z4 = z4 + s4;
+
+console.log(healthPoint);
 
 if (z1 >= 400 && z2 >= 400 && z3 >= 400 && z4 >= 400)
    {
