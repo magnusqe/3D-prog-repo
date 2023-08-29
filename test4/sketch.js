@@ -13,8 +13,19 @@ s2 = 45;
 s3 = 55;
 s4 = 67;
 reset = true;
-healthPoint = 3;
-gameOver = false;
+p0x = 5;
+p0y = 72;
+p0z = 31;
+p1x = 75;
+p1y = 29;
+p1z = 80;
+p2x = 91;
+p2y = 54;
+p2z = 68;
+v1 = 0;
+v2 = 0;
+skal1 = 0;
+skal2 = 0;
 
 function preload()
 {
@@ -25,11 +36,22 @@ function setup()
 {
   createCanvas(500, 500, WEBGL);
   angleMode(DEGREES);
+  v1 = createVector((p1x - p0x), (p1y - p0y), (p1z - p0z));
+  v2 = createVector((p2x - p0x), (p2y - p0y), (p2z - p0z));
+  slider1 = createSlider(-10, 10, 0, 0.01);
+  slider2 = createSlider(-10, 10, 0, 0.01);
 }
 
 function draw()
 {
   background(220);
+
+  skal1 = slider1.value();
+  skal2 = slider2.value();
+
+  xPos = p0x + skal1 * (p1x - p0x) + skal2 * (p2x - p0x); 
+  yPos = p0y + skal1 * (p1y - p0y) + skal2 * (p2y - p0y);
+  zPos = p0z + skal1 * (p1z - p0z) + skal2 * (p2z - p0z);
      
   camera(camX, camY, camZ, camX, camY, -200, 0, 1, 0);
 
@@ -61,42 +83,23 @@ function draw()
   afstand3 = sqrt((camX - x3) * (camX - x3) + (camY - y3) * (camY - y3) + (camZ - z3) * (camZ - z3));
   afstand4 = sqrt((camX - x4) * (camX - x4) + (camY - y4) * (camY - y4) + (camZ - z4) * (camZ - z4));
 
-BoxBoy(x1, y1, z1, boxWidth, boxHeight, boxDepth);  
+/*BoxBoy(x1, y1, z1, boxWidth, boxHeight, boxDepth);  
 
 BoxBoy(x2, y2, z2, boxWidth, boxHeight, boxDepth);
 
 BoxBoy(x3, y3, z3, boxWidth, boxHeight, boxDepth);
 
-BoxBoy(x4, y4, z4, boxWidth, boxHeight, boxDepth);
+BoxBoy(x4, y4, z4, boxWidth, boxHeight, boxDepth); */
 
-if (afstand1 <= (boxWidth / 2))
-{
-  healthPoint -= 1;
-}
-else if (afstand2 <= (boxWidth / 2))
-{
-  healthPoint -= 1;
-}
-else if (afstand3 <= (boxWidth / 2))
-{
-  healthPoint -= 1;
-}
-else if (afstand4 <= (boxWidth / 2))
-{
-  healthPoint -= 1;
-}
-
-if (healthPoint <= 0)
-{
-  gameOver = true;
-}
+push();
+translate(xPos, yPos, zPos);
+sphere(20);
+pop();
 
 z1 = z1 + s1;
 z2 = z2 + s2;
 z3 = z3 + s3;
 z4 = z4 + s4;
-
-console.log(healthPoint);
 
 if (z1 >= 400 && z2 >= 400 && z3 >= 400 && z4 >= 400)
    {
